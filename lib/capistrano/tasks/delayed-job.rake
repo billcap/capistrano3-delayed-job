@@ -21,7 +21,7 @@ namespace :delayed_job do
     on roles(delayed_job_roles) do
       within release_path do
         with rails_env: fetch(:rails_env) do
-          execute :bundle, :exec, delayed_job_bin, :stop
+          execute :bundle, :exec, :stop, delayed_job_bin
         end
       end
     end
@@ -32,7 +32,7 @@ namespace :delayed_job do
     on roles(delayed_job_roles) do
       within release_path do
         with rails_env: fetch(:rails_env) do
-          execute :bundle, :exec, delayed_job_bin, delayed_job_args, :start
+          execute :bundle, :exec, delayed_job_bin, :start, delayed_job_args
         end
       end
     end
@@ -43,7 +43,7 @@ namespace :delayed_job do
     on roles(delayed_job_roles) do
       within release_path do
         with rails_env: fetch(:rails_env) do
-          execute :bundle, :exec, delayed_job_bin, delayed_job_args, :restart
+          execute :bundle, :exec, delayed_job_bin, :restart, delayed_job_args
         end
       end
     end
